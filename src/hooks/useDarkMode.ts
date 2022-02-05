@@ -7,10 +7,9 @@ export const useDarkMode = () => {
   const handleChange = (value: any) => {
     if (
       value == null &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
+      window.matchMedia
     ) {
-      setDarkMode(true);
+      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
       setSystem(true);
       localStorage.setItem('darkMode', 'system');
     } else if (value == null) {

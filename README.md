@@ -30,6 +30,7 @@ const App = () => (
 
 ```tsx
 import React, { Component } from 'react'
+import { useDarkModeContext, DarkModeProvider } from 'dark-mode-context'
 
 const MyButton = () => {
   const {isDark, toggleDarkMode} = useDarkModeContext()

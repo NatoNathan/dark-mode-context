@@ -4,8 +4,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "css:watch": "tailwindcss -i ./src/index.css -o ./dist/output.css --watch",
-    "build:css": "tailwindcss -i ./src/index.css -o ./dist/output.css",
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
     "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
     "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
@@ -26,10 +24,7 @@
     "typescript": "link:../node_modules/typescript"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.6",
-    "tailwindcss": "^3.0.18"
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3"
   },
   "eslintConfig": {
     "extends": "react-app"
