@@ -6,6 +6,7 @@ name: CI Tests
 on:
   push:
   pull_request:
+  worlflow_dispatch:
 
 jobs:
   build:
