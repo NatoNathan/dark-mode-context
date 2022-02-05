@@ -5,10 +5,7 @@ export const useDarkMode = () => {
   const [isSystem, setSystem] = useState(false);
 
   const handleChange = (value: any) => {
-    if (
-      value == null &&
-      window.matchMedia
-    ) {
+    if (value == null && window.matchMedia) {
       setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
       setSystem(true);
       localStorage.setItem('darkMode', 'system');
@@ -60,15 +57,23 @@ export const useDarkMode = () => {
           const mediaQueryList = window.matchMedia(
             '(prefers-color-scheme: dark)'
           );
-          mediaQueryList.onchange = (e) => {
+          mediaQueryList.addEventListener('change', (e) => {
             if (localStorage.getItem('darkMode') === 'system') {
               if (e.matches) {
                 setDarkMode(true);
-              } else {
+              }
+            }
+          });
+          const mediaQueryList2 = window.matchMedia(
+            '(prefers-color-scheme: light)'
+          );
+          mediaQueryList2.addEventListener('change', (e) => {
+            if (localStorage.getItem('darkMode') === 'system') {
+              if (e.matches) {
                 setDarkMode(false);
               }
             }
-          };
+          });
         }
     }
   }, []);
