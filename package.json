@@ -1,7 +1,8 @@
 {
   "name": "dark-mode-context",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "Made with create-react-library",
+  "homepage": "https://natonathan.github.io/dark-mode-context/",
   "author": "NatoNathan",
   "license": "MIT",
   "repository": "NatoNathan/dark-mode-context",
