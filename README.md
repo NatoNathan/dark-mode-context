@@ -2,6 +2,10 @@
 
 A simple context provider for dark mode. It can be used in combination with [Tailwind CSS](https://tailwindcss.com/) to apply dark mode class with support for respecting the user's system preferences.
 
+It also includes a few components that Utilise [Headless UI](https://headlessui.dev/) to make a accesable menu to control the dark mode. Note: this not tested yet. 
+
+A Demo can be found [here](natonathan.github.io/dark-mode-context/), and the source code can be found [here](./example/).
+
 [![NPM](https://img.shields.io/npm/v/dark-mode-context.svg)](https://www.npmjs.com/package/dark-mode-context)
 
 ## Install

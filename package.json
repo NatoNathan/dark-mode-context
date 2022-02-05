@@ -1,7 +1,21 @@
 {
   "name": "dark-mode-context",
   "version": "1.0.0-alpha.1",
-  "description": "Made with create-react-library",
+  "description": "A simple context provider for dark mode",
+  "keywords": [
+    "dark",
+    "mode",
+    "context",
+    "provider",
+    "react",
+    "tailwindcss",
+    "tailwindcss-dark-mode",
+    "react-tailwindcss",
+    "react-context",
+    "hooks",
+    "context-provider",
+    "context-provider-hooks"
+  ],
   "homepage": "https://natonathan.github.io/dark-mode-context/",
   "author": "NatoNathan",
   "license": "MIT",
