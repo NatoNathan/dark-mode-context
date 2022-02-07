@@ -61,9 +61,12 @@ const App = () => (
 ### DarkModeProvider
 
 - `injectDarkClass`: `boolean` - Whether the DarkModeProvider should start in dark mode or not. Defaults to `false`
+- `wrapAs`: `React.ElementType | undefined` - The element to wrap the children in. Defaults to `undefined`
 - `darkClassName`: `string` - The class name to be used for dark mode. Defaults to `dark`
 - `lightClassName`: `string` - The class name to be used for light mode. Defaults to `''`
 - `children`: `React.ReactNode` - The children of the DarkModeProvider
+
+> Note: when `wrapAs` is not set, and `injectDarkClass` is set to `true`, the dark class will be added to the root element `<html>`.
 
 ### DarkModeMenu
 

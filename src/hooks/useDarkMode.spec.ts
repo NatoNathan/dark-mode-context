@@ -53,6 +53,52 @@ describe('Test useDarkMode Hook', () => {
   });
 });
 
+describe('Test useDarkMode Hook inject on HTML', () => {
+  beforeAll(() => {
+    matchMedia = new MatchMediaMock();
+    matchMedia.useMediaQuery('(prefers-color-scheme: dark)');
+  });
+
+  afterEach(() => {
+    matchMedia.clear();
+  });
+
+  it('should set mode to dark', () => {
+    matchMedia.useMediaQuery('(prefers-color-scheme: dark)');
+    const { result } = renderHook(() => useDarkMode(true));
+    expect(result.current.isDarkMode).toBe(true);
+    expect(result.current.isSystem).toBe(true);
+    // check dom for dark mode
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+  });
+
+  it('should set mode to light', () => {
+    matchMedia.useMediaQuery('(prefers-color-scheme: light)');
+    const { result } = renderHook(() => useDarkMode(true));
+    expect(result.current.isDarkMode).toBe(false);
+    expect(result.current.isSystem).toBe(true);
+    // check dom for dark mode
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
+  });
+
+  it('should update when system changes', () => {
+    matchMedia.useMediaQuery('(prefers-color-scheme: dark)');
+    const { result } = renderHook(() => useDarkMode(true));
+    expect(result.current.isDarkMode).toBe(true);
+    expect(result.current.isSystem).toBe(true);
+    // check dom for dark mode
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+
+    act(() => {
+      matchMedia.useMediaQuery('(prefers-color-scheme: light)');
+    });
+    expect(result.current.isDarkMode).toBe(false);
+    expect(result.current.isSystem).toBe(true);
+    // check dom for dark mode
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
+  });
+});
+
 describe('Test useDarkMode Hook with no matchMedia', () => {
   beforeAll(() => {
     matchMedia.destroy();

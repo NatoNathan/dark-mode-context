@@ -5,6 +5,7 @@ import DarkModeContext from '../contexts/DarkModeContext';
 export type DarkModeProviderProps = {
   children: React.ReactNode;
   injectDarkClass?: boolean;
+  wrapAs?: React.ElementType;
   darkClassName?: string;
   lightClassName?: string;
 };
@@ -12,16 +13,18 @@ export type DarkModeProviderProps = {
 const DarkModeProvider = ({
   children,
   injectDarkClass = false,
+  wrapAs,
   darkClassName = 'dark',
   lightClassName = ''
 }: DarkModeProviderProps) => {
-  const value = useDarkMode();
+  const value = useDarkMode(!wrapAs && injectDarkClass);
+  const WrapAs = wrapAs;
   return (
     <DarkModeContext.Provider value={value}>
-      {injectDarkClass ? (
-        <div className={value.isDarkMode ? darkClassName : lightClassName}>
+      {injectDarkClass && WrapAs ? (
+        <WrapAs className={value.isDarkMode ? darkClassName : lightClassName}>
           {children}
-        </div>
+        </WrapAs>
       ) : (
         children
       )}

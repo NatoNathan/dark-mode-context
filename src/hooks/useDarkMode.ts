@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 
-export const useDarkMode = () => {
+export const useDarkMode = (injectOnHTML = false) => {
   const [isDarkMode, setDarkMode] = useState(false);
   const [isSystem, setSystem] = useState(false);
 
@@ -77,6 +77,17 @@ export const useDarkMode = () => {
         }
     }
   }, []);
+
+  useEffect(() => {
+    if (injectOnHTML) {
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, [isDarkMode, injectOnHTML]);
+
   return darkMode;
 };
 
